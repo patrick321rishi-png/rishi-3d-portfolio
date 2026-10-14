@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070914">
+<title>Rishi Patrick — Digital Universe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070914;--text:#f5f6ff;--muted:#a9afc7;--cyan:#72f7e7;--violet:#ad83ff;--pink:#ff79cb;--line:#ffffff1c;--scroll:0;--mx:50%;--my:50%}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:"Space Grotesk",sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(600px circle at var(--mx) var(--my),#72f7e70d,transparent 65%),radial-gradient(700px circle at 80% 15%,#ad83ff12,transparent 65%)}
+a{color:inherit;text-decoration:none}.progress{position:fixed;z-index:100;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink))}
+.nav{position:fixed;z-index:20;top:14px;left:50%;transform:translateX(-50%);width:min(1120px,calc(100% - 28px));padding:12px 17px;border:1px solid var(--line);border-radius:17px;background:#090b17c9;backdrop-filter:blur(20px);display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:700;letter-spacing:-.05em}.brand b{color:var(--cyan)}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.84rem}.navlinks a:hover{color:var(--cyan)}.status{font:10px "DM Mono",monospace;color:var(--cyan)}.status:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-right:8px;box-shadow:0 0 12px var(--cyan)}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.mono{font:10px "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan)}
+.hero{min-height:100svh;padding:125px 0 45px;display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:0;position:relative}
+.eyebrow{display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";height:1px;width:27px;background:var(--cyan)}
+h1{font-size:clamp(3.6rem,7.5vw,7.4rem);line-height:.88;letter-spacing:-.09em;margin:24px 0;font-weight:600;position:relative;z-index:2}
+.stroke{color:transparent;-webkit-text-stroke:1px #e8eaff}.gradient{background:linear-gradient(100deg,var(--cyan),#f6ffff 50%,var(--violet));color:transparent;-webkit-background-clip:text;background-clip:text}
+.lead{max-width:460px;line-height:1.8;color:var(--muted);font-size:1rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.btn{display:inline-flex;align-items:center;gap:12px;padding:13px 18px;border:1px solid var(--line);border-radius:999px;font-size:.87rem;transition:.25s}.btn.primary{background:var(--cyan);color:#061211;font-weight:700;border-color:var(--cyan)}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 35px #72f7e71b}
+.meta{display:flex;gap:15px;flex-wrap:wrap;color:var(--muted);font:9px "DM Mono",monospace;letter-spacing:.1em}.meta span:before{content:"↗ ";color:var(--cyan)}
+.avatar-stage{height:min(83vh,780px);min-height:510px;position:relative;display:flex;justify-content:center;align-items:flex-end;perspective:1000px;isolation:isolate}
+.portal{position:absolute;width:min(440px,90%);aspect-ratio:1;top:13%;left:50%;transform:translateX(-50%) rotateX(13deg) rotateZ(-7deg);border-radius:50%;border:2px solid #72f7e755;box-shadow:0 0 24px #72f7e72b,inset 0 0 35px #ad83ff18,0 0 0 17px #ad83ff0b,0 0 0 38px #72f7e707;animation:portal 15s linear infinite;z-index:-1}
+.portal:before,.portal:after{content:"";position:absolute;inset:15px;border-radius:50%;border:2px dashed #ad83ff88}.portal:after{inset:35px;border-color:#ff79cb6b;transform:rotate(40deg)}
+@keyframes portal{to{transform:translateX(-50%) rotateX(13deg) rotateZ(353deg)}}
+.avatar{position:relative;height:100%;width:100%;display:flex;align-items:flex-end;justify-content:center;transform-style:preserve-3d;will-change:transform;transition:transform .2s ease-out;z-index:2}
+.avatar img{height:100%;max-width:100%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 0 30px #72f7e71a);animation:idle 4.5s ease-in-out infinite;transform-origin:50% 100%;mask-image:linear-gradient(to bottom,black 0%,black 88%,transparent 100%)}
+@keyframes idle{0%,100%{transform:translateY(0) rotateZ(0)}50%{transform:translateY(-9px) rotateZ(.35deg)}}
+.floor{position:absolute;bottom:1%;left:7%;right:7%;height:100px;background:radial-gradient(ellipse,#72f7e72c,transparent 70%);border-bottom:1px solid #72f7e744;transform:rotateX(65deg);filter:blur(3px)}
+.float-label{position:absolute;z-index:3;left:0;top:25%;padding:11px 14px;border:1px solid var(--line);background:#0b0e1dcc;border-radius:11px;font:9px/1.8 "DM Mono",monospace;color:var(--muted);backdrop-filter:blur(10px);animation:drift 5s ease-in-out infinite}.float-label b{display:block;color:var(--cyan);font-size:11px}.avatar-tag{position:absolute;right:0;bottom:18%;z-index:4;padding:12px 14px;border:1px solid var(--line);background:#0b0e1dcc;border-radius:12px;font:9px/1.8 "DM Mono",monospace;color:var(--muted);backdrop-filter:blur(10px);transform:rotate(3deg)}.avatar-tag b{color:var(--violet)}@keyframes drift{50%{transform:translateY(-13px) rotate(-2deg)}}
+.scroll-note{position:absolute;bottom:15px;left:0;display:flex;gap:10px;align-items:center;font:9px "DM Mono",monospace;letter-spacing:.12em;color:var(--muted)}.scroll-note i{height:30px;width:1px;background:linear-gradient(var(--cyan),transparent)}
+.section{padding:105px 0;position:relative}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:36px}.num{font:10px "DM Mono",monospace;color:var(--cyan);margin-bottom:13px}.section h2{font-size:clamp(2.8rem,5.6vw,5rem);letter-spacing:-.08em;line-height:.95;margin:0}.section-head p{max-width:390px;line-height:1.8;color:var(--muted);margin:0}
+.glass{background:linear-gradient(135deg,#111629cc,#0c0e1bcc);border:1px solid var(--line);border-radius:22px;backdrop-filter:blur(18px)}
+.about-grid,.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{padding:28px;min-height:220px;transition:transform .2s,border-color .2s;transform-style:preserve-3d}.icon{width:40px;height:40px;border:1px solid #72f7e755;border-radius:12px;display:grid;place-items:center;color:var(--cyan);font-size:19px}.card .mono{margin-top:20px}.card h3,.project h3{font-size:1.5rem;letter-spacing:-.04em;margin:12px 0}.card p,.project p{color:var(--muted);line-height:1.75;margin:0}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.pill{border:1px solid var(--line);border-radius:999px;padding:9px 12px;background:#ffffff05;color:#d9dced;font-size:.8rem;transition:.2s}.pill:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+.project{padding:25px;min-height:290px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}.project:after{content:"";position:absolute;right:-70px;top:-100px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,#72f7e71b,transparent 70%);pointer-events:none}.project-head{display:flex;justify-content:space-between;color:var(--muted);font:10px "DM Mono",monospace}.project-symbol{color:var(--cyan);font-size:25px}.project h3{margin-top:35px}.project .skills{margin-top:20px}.project a.out{position:absolute;right:22px;bottom:22px;color:var(--cyan);font-size:22px}
+.timeline{border-top:1px solid var(--line)}.row{display:grid;grid-template-columns:170px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line)}.row time{font:10px "DM Mono",monospace;color:var(--cyan)}.row h3{margin:0 0 8px;font-size:1.2rem}.row p{margin:0;color:var(--muted);line-height:1.7}
+.contact{padding:clamp(28px,6vw,60px);display:grid;grid-template-columns:1.2fr .8fr;gap:25px;overflow:hidden;position:relative}.contact h2{font-size:clamp(2.8rem,6vw,5.3rem);letter-spacing:-.08em;line-height:.92;margin:17px 0}.contact p{color:var(--muted);line-height:1.8;max-width:490px}.contact-links{display:flex;flex-direction:column;justify-content:center;gap:12px;z-index:2}.contact-link{border:1px solid var(--line);border-radius:13px;padding:16px;display:flex;justify-content:space-between;transition:.2s}.contact-link:hover{border-color:var(--cyan);transform:translateX(5px)}.contact-link span:last-child{color:var(--cyan)}
+footer{padding:28px 0 40px;display:flex;justify-content:space-between;gap:15px;color:var(--muted);font:9px "DM Mono",monospace;letter-spacing:.08em}.top{color:var(--cyan)}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:800px){.navlinks{gap:13px}.navlinks a:nth-child(2){display:none}.status{display:none}.hero{grid-template-columns:1fr;padding-top:130px}.hero-copy{z-index:4}.avatar-stage{height:520px;min-height:0;margin-top:-10px}.avatar img{max-height:520px}.portal{top:8%;width:min(390px,85%)}.float-label{left:2%;top:16%}.avatar-tag{right:1%;bottom:13%}.scroll-note{display:none}.section{padding:75px 0}.section-head{align-items:start;flex-direction:column}.contact{grid-template-columns:1fr}.row{grid-template-columns:1fr;gap:9px}}
+@media(max-width:480px){.wrap{width:calc(100% - 30px)}.nav{top:8px;width:calc(100% - 16px);padding:11px}.navlinks{font-size:.74rem;gap:10px}.brand{font-size:.9rem}h1{font-size:3.8rem}.avatar-stage{height:410px}.avatar img{max-height:410px}.float-label{font-size:8px}.avatar-tag{font-size:8px}.about-grid,.projects{grid-template-columns:1fr}.section h2{font-size:2.9rem}.project{min-height:280px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="nav"><a class="brand" href="#home">RP<span style="color:var(--cyan)">.</span><b>°</b></a><div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div><div class="status">DIGITAL AVATAR ONLINE</div></nav>
+<main>
+<section class="hero wrap" id="home">
+ <div class="hero-copy">
+  <div class="mono eyebrow">PORTFOLIO / 2026</div>
+  <h1>Hey, I'm<br><span class="stroke">Rishi</span><br><span class="gradient">Patrick.</span></h1>
+  <p class="lead">MCA student, developer, and curious problem-solver. I turn ideas into digital experiences with code, creativity, and a little bit of future.</p>
+  <div class="actions"><a class="btn primary" href="#projects">Explore my work ↘</a><a class="btn" href="#contact">Connect with me ↗</a></div>
+  <div class="meta"><span>WEB DEVELOPMENT</span><span>DATA & AI</span><span>ALWAYS LEARNING</span></div>
+ </div>
+ <div class="avatar-stage" id="avatarStage">
+  <div class="portal"></div><div class="floor"></div>
+  <div class="avatar" id="avatar"><img src="assets/rishi-3d-avatar.png" alt="Stylized 3D avatar representing Rishi Patrick"></div>
+  <div class="float-label"><b>AVATAR.EXE</b>CURIOUS BY DESIGN<br>STATUS: EXPLORING</div>
+  <div class="avatar-tag"><b>SCROLL TO INTERACT</b><br>01 / DIGITAL UNIVERSE</div>
+ </div>
+ <div class="scroll-note"><i></i> SCROLL TO EXPLORE THE WORLD</div>
+</section>
+<section class="section wrap" id="about"><div class="section-head reveal"><div><div class="num">01 / THE HUMAN</div><h2>More than<br>a job title.</h2></div><p>I enjoy turning problems into practical digital experiences — learning by building, improving through feedback, and staying curious about what comes next.</p></div>
+ <div class="about-grid"><article class="glass card reveal tilt"><div class="icon">⌘</div><div class="mono">THE BUILDER</div><h3>Make it work. Make it matter.</h3><p>From responsive websites to database-backed systems, I enjoy creating solutions that are useful, clear, and approachable.</p></article><article class="glass card reveal tilt"><div class="icon">✧</div><div class="mono">THE EXPLORER</div><h3>Curiosity is my compass.</h3><p>Currently pursuing my Master of Computer Applications and exploring web development, data science, and AI-powered ideas.</p></article></div>
+</section>
+<section class="section wrap" id="skills"><div class="section-head reveal"><div><div class="num">02 / MY TOOLKIT</div><h2>Tools are just<br>the beginning.</h2></div><p>A growing toolkit for designing, building, analysing, and improving digital experiences.</p></div>
+ <div class="glass card reveal"><div class="mono">TECHNICAL TOOLKIT</div><div class="skills"><span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Python</span><span class="pill">Django</span><span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">Java</span><span class="pill">Data Analysis</span><span class="pill">Power BI</span><span class="pill">Machine Learning</span><span class="pill">Git & GitHub</span></div></div>
+</section>
+<section class="section wrap" id="projects"><div class="section-head reveal"><div><div class="num">03 / SELECTED BUILDS</div><h2>Ideas, made<br>tangible.</h2></div><p>A few project areas from my learning journey. Update the repository links with your exact project URLs before publishing.</p></div>
+ <div class="projects">
+  <article class="glass project reveal tilt"><div class="project-head"><span>PROJECT / 001</span><span class="project-symbol">⌁</span></div><h3>AI Resume Analyzer</h3><p>A web application concept that analyses resumes and helps connect candidate skills with relevant job opportunities.</p><div class="skills"><span class="pill">Python</span><span class="pill">Django</span><span class="pill">AI / NLP</span></div><a class="out" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Project repository placeholder">↗</a></article>
+  <article class="glass project reveal tilt"><div class="project-head"><span>PROJECT / 002</span><span class="project-symbol">▦</span></div><h3>Hostel Management System</h3><p>A database-driven system concept to organise student information and streamline hostel administration.</p><div class="skills"><span class="pill">PHP</span><span class="pill">MySQL</span><span class="pill">HTML / CSS</span></div><a class="out" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Project repository placeholder">↗</a></article>
+  <article class="glass project reveal tilt"><div class="project-head"><span>PROJECT / 003</span><span class="project-symbol">◈</span></div><h3>Photography Studio</h3><p>A visual-first website concept for presenting photography services, galleries, and a studio identity.</p><div class="skills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">MySQL</span></div><a class="out" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Project repository placeholder">↗</a></article>
+  <article class="glass project reveal tilt"><div class="project-head"><span>PROJECT / 004</span><span class="project-symbol">⌗</span></div><h3>Data & Dashboard Experiments</h3><p>Exploring data preparation, visualisation, and machine-learning workflows to turn information into useful insights.</p><div class="skills"><span class="pill">Python</span><span class="pill">Power BI</span><span class="pill">ML</span></div><a class="out" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="Project repository placeholder">↗</a></article>
+ </div>
+</section>
+<section class="section wrap"><div class="section-head reveal"><div><div class="num">04 / THE JOURNEY</div><h2>Learning in<br>public.</h2></div><p>Every project is a checkpoint, not a finish line.</p></div><div class="timeline reveal">
+ <div class="row"><time>2025 — 2027</time><div><h3>Master of Computer Applications</h3><p>St. Francis de Sales (SFS) College, Bengaluru.</p></div></div>
+ <div class="row"><time>COMPLETED 2025</time><div><h3>Bachelor of Computer Applications</h3><p>St. Joseph’s College, Tiruchirappalli.</p></div></div>
+ <div class="row"><time>ALWAYS ON</time><div><h3>Build. Learn. Iterate.</h3><p>Developing practical projects, learning new tools, and improving one release at a time.</p></div></div>
+</div></section>
+<section class="section wrap" id="contact"><div class="glass contact reveal"><div><div class="num">05 / YOUR MOVE</div><div class="mono">HAVE A PROJECT IN MIND?</div><h2>Let's make<br>something <span style="color:var(--cyan)">real.</span></h2><p>Open to learning opportunities, collaborations, internships, and conversations about technology.</p><a class="btn primary" href="mailto:patrick321rishi@gmail.com">Send me a message ↗</a></div><div class="contact-links"><a class="contact-link" href="mailto:patrick321rishi@gmail.com"><span>Email</span><span>↗</span></a><a class="contact-link" href="https://github.com/patrick321rishi-png" target="_blank" rel="noreferrer"><span>GitHub</span><span>↗</span></a><a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer"><span>LinkedIn — update profile</span><span>↗</span></a></div></div></section>
+</main>
+<footer class="wrap"><span>© <span id="year"></span> RISHI PATRICK / BUILT WITH CURIOSITY</span><a class="top" href="#home">BACK TO TOP ↑</a></footer>
+<script>
+const progress=document.querySelector('#progress'),avatar=document.querySelector('#avatar'),stage=document.querySelector('#avatarStage'),root=document.documentElement;
+window.addEventListener('pointermove',e=>{root.style.setProperty('--mx',e.clientX+'px');root.style.setProperty('--my',e.clientY+'px');if(matchMedia('(hover:hover) and (pointer:fine)').matches){const r=stage.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;avatar.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*3}deg) translateX(${x*8}px)`}});
+function scrollFx(){const max=document.documentElement.scrollHeight-innerHeight,p=max?scrollY/max:0;progress.style.width=(p*100)+'%';const r=stage.getBoundingClientRect(),center=innerHeight*.45;let near=1-Math.min(1,Math.abs((r.top+r.height*.5-center)/innerHeight));if(r.bottom>0&&r.top<innerHeight){avatar.style.setProperty('--walk',near);avatar.style.transform+=` translateY(${Math.sin(scrollY*.018)*3}px)`;stage.style.setProperty('--scroll-glow',near)}}window.addEventListener('scroll',scrollFx,{passive:true});
+document.querySelector('#year').textContent=new Date().getFullYear();
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+if(matchMedia('(hover:hover) and (pointer:fine)').matches)document.querySelectorAll('.tilt').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateX(${-y*4}deg) rotateY(${x*5}deg) translateY(-3px)`});el.addEventListener('pointerleave',()=>el.style.transform='')});
+</script>
+</body></html>
